@@ -16,10 +16,12 @@ ul {
 .parent::after {
     content: '';
 }
+
 .test {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
 .parent {position: relative;}
 .parent::after {
 	content: ''; 
@@ -32,6 +34,7 @@ ul {
 	left: 0;
 	z-index: -1;
 }
+
 .main-box {
     margin-bottom: 10px;
     min-height: 200px;
