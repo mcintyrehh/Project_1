@@ -1,3 +1,4 @@
+window.onSpotifyWebPlaybackSDKReady = () => {}
 $(document).ready(function () {
     var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
     var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
@@ -44,17 +45,18 @@ $(document).ready(function () {
 
     //is this node.js????? how can i get it to work w/o haha
     $('.playbtn').on('click', function () {
-        var spotURL = 'https://accounts.spotify.com/authorize?client_id=' + my_client_id + '&redirect_uri=' + redirect_uri + '&response_type=token' 
+        var spotURL = 'https://accounts.spotify.com/authorize?client_id=' + my_client_id + '&redirect_uri=' + redirect_uri + '&response_type=token&state=123' 
         window.location.replace(spotURL);
-        // $.ajax({
-        //     url: 'https://accounts.spotify.com/authorize?client_id=' + my_client_id + '&redirect_uri=' + redirect_uri + '&response_type=token',
-        //     headers: {
-        //         'Authorization': 'Bearer '
-        //     },
-        //     success: function (response) {
-        //         console.log(response);
-        //     }
-        // });
+        window.onSpotifyWebPlaybackSDKReady = () => {}
+        $.ajax({
+            url: 'https://api.spotify.com/v1/me',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        })
         window.ready(console.log(window.location));
     });
 });
