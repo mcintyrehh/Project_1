@@ -1,7 +1,7 @@
 $(document).ready(function () {
     var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
     var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
-    var my_token = 'BQAMXJ9kuy-4pAZzldBsIfwLysvBnJhrpMOpFOoqGsBRa1Lig0q64xMB7ZqacSSGyvLzYqGlq9f5AkUs94LYxrDeUX7BxPQwYAjAFTknJRiO3HXBvoTVLNkjSV0muwfyaZRyNHbGtaWUQRqnWZHPEAHW5qiwH0p7ENOT';
+    var my_token = 'BQDHlyHtu1sgiMJGaSIK8L7Nzs6G4_-pAERDEeU8tSULTugRGmIkelR-tIaLy63Ja_W3DBPLAh3GdpwdYashljyAKHCVR3gLmqRhJuNVpm1JTd03cU91QUJEnhkOk52H_e2xRwoGnGsVUdDJXQVxDddAF_83aou4JKzC';
 
     var player = new Spotify.Player({
         name: 'Carly Rae Jepsen Player',
