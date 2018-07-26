@@ -35,10 +35,7 @@
                 <div class="col-md-4 example-pic">
                     <img class="test" src="assets/images/happy.jpg">
                 </div>
-                
-             <input size="100" type="text" name="inputImage" id="inputImage">
-        
-                <button>Analyze face</button>
+                    
                 <div class="col-md-8 instructions">
                     <br>
                     <h1>List of instructions</h1>
@@ -65,6 +62,7 @@
         <div class="col-md-10 mx-auto main-box">
             <div class="col-md-8 music-selections"></div>
             <h1>Music List</h1>
+            <div class="btn btn-success playbtn">Play</div>
         </div>
     </div>
 
@@ -73,6 +71,7 @@
         <div class="col-md-10 mx-auto main-box">
             <div class="col-md-8 music-selections"></div>
             <h1>Movie List </h1>
+            <btn class="btn btn-success playbtn">Play</btn>
         </div>
     </div>
 
@@ -83,6 +82,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <script>window.onSpotifyWebPlaybackSDKReady = () => {};</script>
     <script src="assets/javascript/app.js"></script>
 
 </body>
