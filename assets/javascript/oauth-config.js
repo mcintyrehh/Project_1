@@ -7,8 +7,8 @@ var OAuthConfig = (function() {
   var clientId = '2e12ca59d482427694678b6f76ce6cac';
   var redirectUri = 'https://mcintyrehh.github.io/Project_1/';
 
-  if (location.href.indexOf('http://jmperezperez.com') === 0) {
-    redirectUri = 'http://jmperezperez.com/spotify-web-api-start-template/callback.html';
+  if (location.href.indexOf('https://mcintyrehh') === 0) {
+    redirectUri = 'https://mcintyrehh.github.io/Project_1/callback.html';
   }
 
   var host = /http[s]?:\/\/[^/]+/.exec(redirectUri)[0];
