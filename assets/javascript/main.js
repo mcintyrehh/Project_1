@@ -14,10 +14,7 @@
             the user login form
             */
           'user-read-private',
-          'streaming',
           'user-read-email',
-          'user-read-birthdate',
-          'user-read-private'
         ]
       }).then(function (token) {
         onTokenReceived(token);
