@@ -3,7 +3,12 @@ $(document).ready(function () {
     window.onSpotifyWebPlaybackSDKReady = () => {
         // You can now initialize Spotify.Player and use the SDK
     };
-
+    player.connect().then(success => {
+        if (success) {
+            console.log('The Web Playback SDK successfully connected to Spotify!');
+        }
+    })
+    
     var player = new Spotify.Player({
         name: 'Carly Rae Jepsen Player',
         getOAuthToken: callback => {
@@ -13,11 +18,7 @@ $(document).ready(function () {
         },
         volume: 0.5
     });
-    player.connect().then(success => {
-        if (success) {
-            console.log('The Web Playback SDK successfully connected to Spotify!');
-        }
-    })
+
     player.addListener('ready', ({ device_id }) => {
         console.log('The Web Playback SDK is ready to play music!');
         console.log('Device ID', device_id);
