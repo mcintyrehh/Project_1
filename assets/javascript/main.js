@@ -1,4 +1,3 @@
-var token;
 (function () {
   'use strict';
 
@@ -66,9 +65,26 @@ var token;
         viewModel.playlists(playlists.items);
       });
     });
-    token = token;
-  }
+    window.onSpotifyWebPlaybackSDKReady = () => {
+      console.log(localStorage.getItem(accessTokenKey))
+      var player = new Spotify.Player({
+        name: 'Carly Rae Jepsen Player',
+        getOAuthToken: callback => {
+          // Run code to get a fresh access token
   
+          callback(localStorage.getItem(accessTokenKey));
+        },
+        volume: 0.5
+      });
+      player.connect().then(success => {
+        if (success) {
+          console.log('The Web Playback SDK successfully connected to Spotify!');
+        }
+      })
+    }
+
+  }
+
 
   /**
    * Uses the stored access token
@@ -78,6 +94,7 @@ var token;
     if (storedAccessToken) {
       onTokenReceived(storedAccessToken);
     }
+    
   }
 
   initAccessToken();
