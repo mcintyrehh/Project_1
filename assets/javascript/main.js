@@ -14,7 +14,7 @@
             the user login form
             */
           'user-read-private',
-          'user-read-email',
+          'user-read-email'
         ]
       }).then(function (token) {
         onTokenReceived(token);
