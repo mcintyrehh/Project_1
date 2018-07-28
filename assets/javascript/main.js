@@ -13,6 +13,7 @@
             automatically when obtaining an access token through
             the user login form
             */
+          'web-playback',
           'user-read-private',
           'user-read-email'
         ]
