@@ -18,7 +18,7 @@ function getHashParams() {
 var params = getHashParams(),
     accessToken = params.access_token,
     state = params.state,
-    storedState = localStorage.getItem(OAuthCfonfig.stateKey);
+    storedState = localStorage.getItem(OAuthConfig.stateKey);
 
 if (accessToken && (state === undefined || state !== storedState)) {
   target.postMessage(JSON.stringify(
