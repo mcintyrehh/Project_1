@@ -71,7 +71,7 @@
         name: 'Carly Rae Jepsen Player',
         getOAuthToken: callback => {
           // Run code to get a fresh access token
-  
+
           callback(localStorage.getItem(accessTokenKey));
         },
         volume: 0.5
@@ -80,6 +80,11 @@
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
         }
+      })
+
+      playerplayer.addListeneraddListener('ready', ({ device_id }) => {
+        console.log('The Web Playback SDK is ready to play music!');
+        console.log('Device ID', device_id);
       })
     }
 
@@ -94,7 +99,7 @@
     if (storedAccessToken) {
       onTokenReceived(storedAccessToken);
     }
-    
+
   }
 
   initAccessToken();
