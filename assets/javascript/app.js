@@ -3,7 +3,35 @@ $(document).ready(function () {
     var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
     var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
 });
-    // var my_token = 'BQDHlyHtu1sgiMJGaSIK8L7Nzs6G4_-pAERDEeU8tSULTugRGmIkelR-tIaLy63Ja_W3DBPLAh3GdpwdYashljyAKHCVR3gLmqRhJuNVpm1JTd03cU91QUJEnhkOk52H_e2xRwoGnGsVUdDJXQVxDddAF_83aou4JKzC';
+    // const token = '[My Spotify Web API access token]';
+//     const player = new Spotify.Player({
+//         name: 'PicMeUp',
+//         getOAuthToken: cb => { cb(token); }
+//     });
+
+//     // Error handling
+//     player.addListener('initialization_error', ({ message }) => { console.error(message); });
+//     player.addListener('authentication_error', ({ message }) => { console.error(message); });
+//     player.addListener('account_error', ({ message }) => { console.error(message); });
+//     player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+//     // Playback status updates
+//     player.addListener('player_state_changed', state => { console.log(state); });
+
+//     // Ready
+//     player.addListener('ready', ({ device_id }) => {
+//         console.log('Ready with Device ID', device_id);
+//     });
+
+//     // Not Ready
+//     player.addListener('not_ready', ({ device_id }) => {
+//         console.log('Device ID has gone offline', device_id);
+//     });
+
+//     // Connect to the player!
+//     player.connect();
+// });
+// var my_token = 'BQDHlyHtu1sgiMJGaSIK8L7Nzs6G4_-pAERDEeU8tSULTugRGmIkelR-tIaLy63Ja_W3DBPLAh3GdpwdYashljyAKHCVR3gLmqRhJuNVpm1JTd03cU91QUJEnhkOk52H_e2xRwoGnGsVUdDJXQVxDddAF_83aou4JKzC';
     // var authenticated = false;
 //     if (!authenticated) {
 //         console.log("should be false: " + authenticated)
