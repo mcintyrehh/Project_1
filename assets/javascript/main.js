@@ -81,7 +81,6 @@
           console.log('The Web Playback SDK successfully connected to Spotify!');
         }
       })
-
       playerplayer.addListeneraddListener('ready', ({ device_id }) => {
         console.log('The Web Playback SDK is ready to play music!');
         console.log('Device ID', device_id);
