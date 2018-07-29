@@ -28,7 +28,7 @@ $( document ).ready(function() {
           var responseArea =  $("#response-text-area"); // TO DO: fix this reference when transferring this to new file
           var imageArea  = $("#source-image")  // TO DO: fix this reference when transferring this to new file
           var myOutputField = $("#custom-text-area"); // TO DO WHEN MOVING FILE: delete this line, unless it is still desired
-          var subscriptionKey = "26075440faf6440597e1e144b2245eea"; 
+          var subscriptionKey = "7744436205a4423eb8ca1acfde55d449"; 
           var uriBase = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
           var params = {
             "returnFaceId": "true",
