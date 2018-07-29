@@ -64,8 +64,6 @@
       //playlist pull!
       //  $('.playbtn').on('click', function() {
       //   console.log('at least the click worked');
-      //   var userInfo = '/users/124239502'
-        // var happyPlaylist = '/playlists/70Vhwte8On581mDvi2F98F'
       //   var queryURL = 'https://api.spotify.com/v1' + userInfo + happyPlaylist;
       //   $.ajax({
       //     url: queryURL,
@@ -82,6 +80,7 @@
     // initialize webplayback SDK! //
     window.onSpotifyWebPlaybackSDKReady = () => {
       console.log(localStorage.getItem(accessTokenKey))
+      
       var player = new Spotify.Player({
         name: 'Carly Rae Jepsen Player',
         getOAuthToken: callback => {
@@ -91,6 +90,14 @@
         },
         volume: 0.5
       });
+      //initializing the spotify web api wrapper
+      var userID = 124239502;
+      var happyPlaylist = '70Vhwte8On581mDvi2F98F'
+      var spotifyApi = new SpotifyWebApi();
+      //setting the token to sign requests
+      spotifyApi.setAccessToken(localStorage.getItem(accessTokenKey));
+      //grabbing the playlist, outputting JSON data
+      spotifyAPI.getPlaylist(userID, happyPlaylist, options, callback);
       var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
@@ -128,27 +135,11 @@
       });
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
-        console.log('maybe');
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${my_client_id}/playlists/70Vhwte8On581mDvi2F98F`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-        });
+
       });
 
-     
 
-      //   $.ajax({
-      //     url: 'https://api.spotify.com/v1/me',
-      //     headers: {
-      //         'Authorization': 'Bearer ' + accessToken
-      //     },
-      //     success: function(response) {
-      //     }
-      //   });
-      // }) 
+
       player.connect().then(success => {
         if (success) {
           console.log('The Web Playback SDK successfully connected to Spotify!');
@@ -171,9 +162,7 @@
     if (storedAccessToken) {
       onTokenReceived(storedAccessToken);
     }
-
   }
-
   initAccessToken();
 
 })();
