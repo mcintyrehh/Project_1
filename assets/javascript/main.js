@@ -14,8 +14,8 @@
             the user login form
             */
           'user-read-private',
-          'user-modify-playback-state'
-          // 'user-read-email'
+          'user-modify-playback-state',
+          'web-playback'
         ]
       }).then(function (token) {
         onTokenReceived(token);
