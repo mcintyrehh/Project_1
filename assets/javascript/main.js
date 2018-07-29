@@ -147,13 +147,9 @@
               },
               ContentType: 'application/json',
               Accept: 'application/json',
-              success: function (data) {
-                console.log("DATA: ", data)
-              }
             })
-              .done(function (data) {
+              .done(function(data) {
                 console.log("number 2 worked!!")
-                console.log(data);
               })
           })
       });
