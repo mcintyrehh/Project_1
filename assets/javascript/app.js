@@ -1,6 +1,6 @@
 
 $(document).ready(function () {
-    $('.playbtn').on('click', function () {
+    $('.playbtn').click(function () {
         console.log('at least the click worked');
         var userInfo = '/users/124239502'
         var happyPlaylist = '/playlists/70Vhwte8On581mDvi2F98F'
