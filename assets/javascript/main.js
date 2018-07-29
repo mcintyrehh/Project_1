@@ -8,16 +8,17 @@
       this.loginErrorMessage(null);
       OAuthManager.obtainToken({
         scopes: [
+          "streaming", 
+          "user-read-birthdate", 
+          "user-read-email", 
+          "user-read-private",
+          "user-modify-playback-state",
+        ]
           /*
             the permission for reading public playlists is granted
             automatically when obtaining an access token through
             the user login form
             */
-          'user-read-private',
-          'user-modify-playback-state',
-          'user-read-email',
-          'streaming'
-        ]
       }).then(function (token) {
         onTokenReceived(token);
         console.log(token);
