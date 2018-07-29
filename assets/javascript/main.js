@@ -120,8 +120,7 @@
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
           headers: { 
-            'Accept': application/json,
-            'Content-Type': application/json,
+            
             'Authorization': 'Bearer' + playToken
           }
         })
