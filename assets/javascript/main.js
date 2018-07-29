@@ -65,7 +65,7 @@
       //  $('.playbtn').on('click', function() {
       //   console.log('at least the click worked');
       //   var userInfo = '/users/124239502'
-      //   var happyPlaylist = '/playlists/70Vhwte8On581mDvi2F98F'
+        // var happyPlaylist = '/playlists/70Vhwte8On581mDvi2F98F'
       //   var queryURL = 'https://api.spotify.com/v1' + userInfo + happyPlaylist;
       //   $.ajax({
       //     url: queryURL,
@@ -129,7 +129,7 @@
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
         console.log('maybe');
-        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${my_client_id}/playlists/${happyPlaylist}/`, {
+        fetch(`https://api.spotify.com/v1/me/player/play?device_id=${my_client_id}/playlists/70Vhwte8On581mDvi2F98F`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
