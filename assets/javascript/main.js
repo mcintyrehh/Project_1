@@ -141,9 +141,9 @@
               // data: {
               //   "context_uri": "spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"
               // },
-              data: {
-                "context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F",
-              },
+              processData: false,
+              data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
+
               headers: {
                 'Authorization': 'Bearer ' + playToken,
               },
