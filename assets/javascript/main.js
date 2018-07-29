@@ -117,6 +117,7 @@
       });
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
+        console.log("SPOTIFY GET REQUEST FIRED")
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
           headers: { 
@@ -124,6 +125,7 @@
           }
         })
         .done(function(data) {
+          console.log("DONE FIRED!")
           console.log(data);
         })
       });
