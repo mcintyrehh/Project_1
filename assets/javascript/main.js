@@ -120,10 +120,16 @@
         console.log("SPOTIFY GET REQUEST FIRED")
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
-          headers: { 
+         // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
+         type: 'GET', 
+         headers: { 
             'Authorization': 'Bearer' + playToken,
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
+           
+          },
+          ContentType: 'application/json',
+          Accept: 'application/json',
+          success:function(data){
+            console.log("DATA: ", data)
           }
         })
         .done(function(data) {
