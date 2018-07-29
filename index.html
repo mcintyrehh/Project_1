@@ -36,24 +36,10 @@
                 <div class="col-md-4 example-pic">
                     <img class="test" src="assets/images/happy.jpg">
                 </div>
-                     
+
 
                 <div class="col-md-8 instructions">
-                    <br>
-                    <h1>List of instructions</h1>
-                    <br>
-                    <br>
-                    <ul class="ml-3">
-                        <li>Instruction 1</li>
-                        <br>
-                        <li>Instruction 2</li>
-                        <br>
-                        <li>Instruction 3</li>
-                        <br>
-                        <li>Instruction 4</li>
-                        <br>
-                        <li>Instruction 5</li>
-                    </ul>
+                    
                 </div>
             </div>
         </div>
@@ -70,45 +56,47 @@
     <div class="container main-box">
 
         <div class="starter-template">
-          <h1>Spotify Web API + OAuth2 + Sp-bootstrap template</h1>
-          <p class="lead">Use this project as a way to quickly start a new project.</p>
+            <h1>Spotify Web API + OAuth2 + Sp-bootstrap template</h1>
+            <p class="lead">Use this project as a way to quickly start a new project.</p>
         </div>
-  
+
         <!-- ko ifnot: isLoggedIn -->
         <div id="login">
-          <div data-bind="if: loginErrorMessage">
-            <div class="alert alert-danger" data-bind="text: loginErrorMessage"></div>
-          </div>
-          <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
+            <div data-bind="if: loginErrorMessage">
+                <div class="alert alert-danger" data-bind="text: loginErrorMessage"></div>
+            </div>
+            <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
         </div>
         <!-- /ko -->
-  
+
         <!-- ko if: isLoggedIn -->
         <div id="loggedin">
-          <div data-bind="with: user">
-            <h1>Logged in as <span data-bind="text: display_name"></span></h1>
-            <img data-bind="attr: {src: images[0].url}">
-            <div class="btn btn-success playbtn">Play</div>
-          </div>
-  
-          <hr />
-  
-          <h2>Some of my public playlists</h2>
-          <ul data-bind="foreach: playlists">
-            <li class="media playlist">
-              <div class="media-left">
-                <img data-bind="attr: {src: images.length ? images[0].url : ''}" width="200" height="200" />
-              </div>
-              <div class="media-body">
-                <div class="media-heading" data-bind="text:name"></div>
-              </div>
-            </li>
-          </ul>
-  
-          <button id="login-button" class="btn btn-primary" data-bind="click: logout">Log out from Spotify</button>
+            <div data-bind="with: user">
+                <h1>Logged in as
+                    <span data-bind="text: display_name"></span>
+                </h1>
+                <img data-bind="attr: {src: images[0].url}">
+                <div class="btn btn-success playbtn">Play</div>
+            </div>
+
+            <hr />
+
+            <h2>Some of my public playlists</h2>
+            <ul data-bind="foreach: playlists">
+                <li class="media playlist">
+                    <div class="media-left">
+                        <img data-bind="attr: {src: images.length ? images[0].url : ''}" width="200" height="200" />
+                    </div>
+                    <div class="media-body">
+                        <div class="media-heading" data-bind="text:name"></div>
+                    </div>
+                </li>
+            </ul>
+
+            <button id="login-button" class="btn btn-primary" data-bind="click: logout">Log out from Spotify</button>
         </div>
         <!-- /ko -->
-      </div>
+    </div>
 
     <!--Movie selections and recommendations-->
     <div class="row">
@@ -126,19 +114,18 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-    <script src="https://cdnjs.com/libraries/mediaelement-plugins"></script>
-    <!-- knockout is the 'binding library' used in a lot of spotify applications -->    
-    <script src="bower_components/knockout/dist/knockout.js"></script>    
+    <!-- knockout is the 'binding library' used in a lot of spotify applications -->
+    <script src="bower_components/knockout/dist/knockout.js"></script>
     <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
-    <script>window.onSpotifyWebPlaybackSDKReady = () => {};</script>
+    <script>window.onSpotifyWebPlaybackSDKReady = () => { };</script>
     <!-- linking all the js files-->
     <script src="assets/javascript/spotify-web-api.js"></script>
     <script src="assets/javascript/oauth-config.js"></script>
     <script src="assets/javascript/oauth-manager.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/app.js"></script>
-    
+
 
 </body>
 
