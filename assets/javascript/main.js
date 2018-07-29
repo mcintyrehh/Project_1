@@ -60,111 +60,123 @@
     spotifyApi.setAccessToken(token);
     spotifyApi.getMe().then(function (data) {
       viewModel.user(data);
+      $('.playbtn').on('click', function () {
+        $.ajax({
+          url: 'https://api.spotify.com/v1' + '/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
+          headers: {
+            'Authorization': 'Bearer ' + token
+          },
+          // data: {
+          //   q: `artist:"${searchValue}"`,
+          //   type: 'album',
+          //   market: 'US'
+          // },
+          success: (results) => {
+            console.log(results)
+          }
+        })
+      })
 
-      //playlist pull!
-      //  $('.playbtn').on('click', function() {
-      //   console.log('at least the click worked');
-      //   var queryURL = 'https://api.spotify.com/v1' + userInfo + happyPlaylist;
-      //   $.ajax({
-      //     url: queryURL,
-      //     method: "GET"
-      //   }).then(function (response) {
-      //     console.log(response);
-      //   });
-      //   });
-      // spotifyApi.getUserPlaylists(data.id).then(function (playlists) {
-      //   console.log(playlists);
-      //   viewModel.playlists(playlists.items);
-      // });
     });
-    // initialize webplayback SDK! //
-    window.onSpotifyWebPlaybackSDKReady = () => {
-      console.log(localStorage.getItem(accessTokenKey))
-      
-      var player = new Spotify.Player({
-        name: 'Carly Rae Jepsen Player',
-        getOAuthToken: callback => {
-          // Run code to get a fresh access token
+    //playlist pull!
+    //  $('.playbtn').on('click', function() {
+    //   console.log('at least the click worked');
+    //   var queryURL = 'https://api.spotify.com/v1' + userInfo + happyPlaylist;
+    //   $.ajax({
+    //     url: queryURL,
+    //     method: "GET"
+    //   }).then(function (response) {
+    //     console.log(response);
+    //   });
+    //   });
+    // spotifyApi.getUserPlaylists(data.id).then(function (playlists) {
+    //   console.log(playlists);
+    //   viewModel.playlists(playlists.items);
+    // });
+  });
+  // initialize webplayback SDK! //
+  window.onSpotifyWebPlaybackSDKReady = () => {
+    console.log(localStorage.getItem(accessTokenKey))
 
-          callback(localStorage.getItem(accessTokenKey));
-        },
-        volume: 0.5
-      });
-      //initializing the spotify web api wrapper
-      var userID = 124239502;
-      var happyPlaylist = '70Vhwte8On581mDvi2F98F'
-      var spotifyApi = new SpotifyWebApi();
-      // constructor creates an instance of the wrapper
-      var Constr = function() {};
-      //setting the token to sign requests
-      spotifyApi.setAccessToken(localStorage.getItem(accessTokenKey));
-      //grabbing the playlist, outputting JSON data
-      Constr.prototype.getPlaylist(userID, happyPlaylist);
-      var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
-      var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
-      var player = new Spotify.Player({
-        name: 'Carly Rae Jepsen Player',
-        getOAuthToken: callback => {
-          // Run code to get a fresh access token
-          callback(localStorage.getItem(accessTokenKey));
-        },
-        volume: 0.5
-      });
-      player.addListener('ready', ({ device_id }) => {
-        console.log('The Web Playback SDK is ready to play music!');
-        console.log('Device ID', device_id);
-      })
-      // Error handling
-      player.addListener('initialization_error', ({ message }) => { console.error(message); });
-      player.addListener('authentication_error', ({ message }) => { console.error(message); });
-      player.addListener('account_error', ({ message }) => { console.error(message); });
-      player.addListener('playback_error', ({ message }) => { console.error(message); });
-      // Playback status updates
-      player.addListener('player_state_changed', state => { console.log(state); });
-      // Ready
-      player.addListener('ready', ({ device_id }) => {
-        console.log('Ready with Device ID', device_id);
-      });
-      // Not Ready
-      player.addListener('not_ready', ({ device_id }) => {
-        console.log('Device ID has gone offline', device_id);
-      });
-      // Connect to the player!
-      player.connect().then(success => {
-        if (success) {
-          console.log('The Web Playback SDK successfully connected to Spotify!');
-        }
-      });
-      //is this node.js????? how can i get it to work w/o haha
-      $('div').on("click", ".playbtn", function () {
+    var player = new Spotify.Player({
+      name: 'Carly Rae Jepsen Player',
+      getOAuthToken: callback => {
+        // Run code to get a fresh access token
 
-      });
+        callback(localStorage.getItem(accessTokenKey));
+      },
+      volume: 0.5
+    });
+    //initializing the spotify web api wrapper
+    var userID = 124239502;
+    var happyPlaylist = '70Vhwte8On581mDvi2F98F'
+    var spotifyApi = new SpotifyWebApi();
+
+    var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
+    var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
+    var player = new Spotify.Player({
+      name: 'Carly Rae Jepsen Player',
+      getOAuthToken: callback => {
+        // Run code to get a fresh access token
+        callback(localStorage.getItem(accessTokenKey));
+      },
+      volume: 0.5
+    });
+    player.addListener('ready', ({ device_id }) => {
+      console.log('The Web Playback SDK is ready to play music!');
+      console.log('Device ID', device_id);
+    })
+    // Error handling
+    player.addListener('initialization_error', ({ message }) => { console.error(message); });
+    player.addListener('authentication_error', ({ message }) => { console.error(message); });
+    player.addListener('account_error', ({ message }) => { console.error(message); });
+    player.addListener('playback_error', ({ message }) => { console.error(message); });
+    // Playback status updates
+    player.addListener('player_state_changed', state => { console.log(state); });
+    // Ready
+    player.addListener('ready', ({ device_id }) => {
+      console.log('Ready with Device ID', device_id);
+    });
+    // Not Ready
+    player.addListener('not_ready', ({ device_id }) => {
+      console.log('Device ID has gone offline', device_id);
+    });
+    // Connect to the player!
+    player.connect().then(success => {
+      if (success) {
+        console.log('The Web Playback SDK successfully connected to Spotify!');
+      }
+    });
+    //is this node.js????? how can i get it to work w/o haha
+    $('div').on("click", ".playbtn", function () {
+
+    });
 
 
 
-      player.connect().then(success => {
-        if (success) {
-          console.log('The Web Playback SDK successfully connected to Spotify!');
-        }
-      })
-      player.addListener('ready', ({ device_id }) => {
-        console.log('The Web Playback SDK is ready to play music!');
-        console.log('Device ID', device_id);
-      })
-    }
-
+    player.connect().then(success => {
+      if (success) {
+        console.log('The Web Playback SDK successfully connected to Spotify!');
+      }
+    })
+    player.addListener('ready', ({ device_id }) => {
+      console.log('The Web Playback SDK is ready to play music!');
+      console.log('Device ID', device_id);
+    })
   }
+
+}
 
 
   /**
    * Uses the stored access token
    */
   function initAccessToken() {
-    var storedAccessToken = localStorage.getItem(accessTokenKey);
-    if (storedAccessToken) {
-      onTokenReceived(storedAccessToken);
-    }
+  var storedAccessToken = localStorage.getItem(accessTokenKey);
+  if (storedAccessToken) {
+    onTokenReceived(storedAccessToken);
   }
-  initAccessToken();
+}
+initAccessToken();
 
-})();
+}) ();
