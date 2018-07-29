@@ -8,17 +8,17 @@
       this.loginErrorMessage(null);
       OAuthManager.obtainToken({
         scopes: [
-          "streaming", 
-          "user-read-birthdate", 
-          "user-read-email", 
+          "streaming",
+          "user-read-birthdate",
+          "user-read-email",
           "user-read-private",
           "user-modify-playback-state",
         ]
-          /*
-            the permission for reading public playlists is granted
-            automatically when obtaining an access token through
-            the user login form
-            */
+        /*
+          the permission for reading public playlists is granted
+          automatically when obtaining an access token through
+          the user login form
+          */
       }).then(function (token) {
         onTokenReceived(token);
         console.log(token);
@@ -82,7 +82,7 @@
       var userID = 124239502;
       var happyPlaylist = '70Vhwte8On581mDvi2F98F'
       var spotifyApi = new SpotifyWebApi();
-     
+
       var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
@@ -123,41 +123,41 @@
         console.log("PLAY TOKEN: ", playToken)
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
-         // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
-         type: 'GET', 
-         headers: { 
+          // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
+          type: 'GET',
+          headers: {
             'Authorization': 'Bearer ' + playToken,
-           
+
           },
           ContentType: 'application/json',
           Accept: 'application/json',
-          success: function(data){
+          success: function (data) {
             console.log("DATA: ", data)
           }
         })
-        .done(function(data) {
-          console.log("DONE FIRED!")
-          console.log(data);
-          $.ajax({
-            url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
-           type: 'PUT', 
-           data: {
-             'context_uri': 'spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F'},
-           headers: { 
-              'Authorization': 'Bearer ' + playToken,
-             
-            },
-            ContentType: 'application/json',
-            Accept: 'application/json',
-            success: function(data){
-              console.log("DATA: ", data)
-            }
-          })
-          .done(function(data) {
-            console.log("DONE FIRED!")
+          .done(function (data) {
+            console.log("NUMBER 2 FIRED!")
             console.log(data);
+            $.ajax({
+              url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
+              type: 'PUT',
+              data: {
+                'context_uri':"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"
+              },
+              headers: {
+                'Authorization': 'Bearer ' + playToken,
+              },
+              ContentType: 'application/json',
+              Accept: 'application/json',
+              success: function (data) {
+                console.log("DATA: ", data)
+              }
+            })
+              .done(function (data) {
+                console.log("number 2 worked!!")
+                console.log(data);
+              })
           })
-        })
       });
       player.connect().then(success => {
         if (success) {
