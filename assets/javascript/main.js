@@ -14,6 +14,7 @@
             the user login form
             */
           'user-read-private',
+          'user-modify-playback-state'
           // 'user-read-email'
         ]
       }).then(function (token) {
@@ -135,6 +136,23 @@
         .done(function(data) {
           console.log("DONE FIRED!")
           console.log(data);
+          $.ajax({
+            url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
+           type: 'PUT', 
+           headers: { 
+              'Authorization': 'Bearer ' + playToken,
+             
+            },
+            ContentType: 'application/json',
+            Accept: 'application/json',
+            success: function(data){
+              console.log("DATA: ", data)
+            }
+          })
+          .done(function(data) {
+            console.log("DONE FIRED!")
+            console.log(data);
+          })
         })
       });
       player.connect().then(success => {
