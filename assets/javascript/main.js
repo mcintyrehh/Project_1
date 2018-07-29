@@ -117,7 +117,7 @@
       });
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
-        console.log("SPOTIFY GET REQUEST FIRED")
+        console.log("PLAY TOKEN: ", playToken)
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
          // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
@@ -128,7 +128,7 @@
           },
           ContentType: 'application/json',
           Accept: 'application/json',
-          success:function(data){
+          success: function(data){
             console.log("DATA: ", data)
           }
         })
