@@ -5,9 +5,9 @@ var OAuthConfig = (function() {
   /* replace these values with yours obtained in the
   "My Applications" section of the Spotify developer site */
   var clientId = '2e12ca59d482427694678b6f76ce6cac';
-  var redirectUri = 'https://mcintyrehh.github.io/Project_1/';
+  var redirectUri = 'http://localhost:8888/callback.html';
 
-  if (location.href.indexOf('https://mcintyrehh') === 0) {
+  if (location.href.indexOf('https://mcintyrehh.github.io') === 0) {
     redirectUri = 'https://mcintyrehh.github.io/Project_1/callback.html';
   }
 
