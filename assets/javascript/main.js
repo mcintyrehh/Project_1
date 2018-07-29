@@ -15,6 +15,8 @@
             */
           'user-read-private',
           'user-modify-playback-state',
+          'user-read-email',
+          'streaming'
         ]
       }).then(function (token) {
         onTokenReceived(token);
