@@ -133,7 +133,7 @@
           playerInstance: 'Carly Rae Jepsen Player',
           spotify_uri: 'spotify:playlist:70Vhwte8On581mDvi2F98F'
         });
-      }
+      });
         // const play = ({
         //     spotify_uri,
         //     playerInstance: {
