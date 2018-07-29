@@ -13,6 +13,7 @@
           "user-read-email",
           "user-read-private",
           "user-modify-playback-state",
+          "user-read-playback-state",
         ]
         /*
           the permission for reading public playlists is granted
