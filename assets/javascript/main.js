@@ -120,7 +120,6 @@
         $.ajax({
           url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
           headers: { 
-            
             'Authorization': 'Bearer' + playToken
           }
         })
