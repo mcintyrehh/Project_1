@@ -128,46 +128,33 @@
       });
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
-        // fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
+        const play = ({
+          spotify_uri,
+          playerInstance: {
+            _options: {
+              getOAuthToken,
+              id
+            }
+          }
+        }) => {
+          getOAuthToken(access_token => {
+            fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
+              method: 'PUT',
+              body: JSON.stringify({ uris: [spotify_uri] }),
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${access_token}`
+              },
+            });
+          });
+        };
+        
         play({
-          playerInstance: 'Carly Rae Jepsen Player',
-          spotify_uri: 'spotify:playlist:70Vhwte8On581mDvi2F98F'
+          playerInstance: new Spotify.Player({ name: "..." }),
+          spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
         });
       });
-        // const play = ({
-        //     spotify_uri,
-        //     playerInstance: {
-        //       _options: {
-        //         getOAuthToken,
-        //         id
-        //       }
-        //     }
-        //   }) => {
-        //     getOAuthToken(access_token => {
-        //       fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
-        //         method: 'PUT',
-        //         body: JSON.stringify({ uris: [spotify_uri] }),
-        //         headers: {
-        //           'Content-Type': 'application/json',
-        //           'Authorization': `Bearer ${access_token}`
-        //         },
-        //       });
-        //     });
-        //   };
-        //   play({
-        //     playerInstance: new Spotify.Player({ name: "..." }),
-        //     spotify_uri: 'spotify:track:7xGfFoTpQ2E7fRF5lN10tr',
-        //   });
-        // });
-        //   $.ajax({
-        //     url: 'https://api.spotify.com/v1/me',
-        //     headers: {
-        //         'Authorization': 'Bearer ' + accessToken
-        //     },
-        //     success: function(response) {
-        //     }
-        //   });
-        // }) 
+      
         player.connect().then(success => {
           if (success) {
             console.log('The Web Playback SDK successfully connected to Spotify!');
