@@ -63,7 +63,10 @@
       
       //playlist pull!
      $('.playbtn').on('click', function() {
-      var queryURL = 'https://api.spotify.com/v1' + '/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F'
+      console.log('at least the click worked');
+      var userInfo = '/users/124239502'
+      var happyPlaylist = '/playlists/70Vhwte8On581mDvi2F98F'
+      var queryURL = 'https://api.spotify.com/v1' + userInfo + happyPlaylist;
       $.ajax({
         url: queryURL,
         method: "GET"
