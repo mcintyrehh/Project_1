@@ -94,10 +94,12 @@
       var userID = 124239502;
       var happyPlaylist = '70Vhwte8On581mDvi2F98F'
       var spotifyApi = new SpotifyWebApi();
+      // constructor creates an instance of the wrapper
+      var Constr = function() {};
       //setting the token to sign requests
       spotifyApi.setAccessToken(localStorage.getItem(accessTokenKey));
       //grabbing the playlist, outputting JSON data
-      spotifyAPI.getPlaylist(userID, happyPlaylist, options, callback);
+      Constr.prototype.getPlaylist(userID, happyPlaylist, options, callback);
       var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
