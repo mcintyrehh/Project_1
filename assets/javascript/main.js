@@ -122,22 +122,19 @@
       $('div').on("click", ".playbtn", function () {
         console.log("PLAY TOKEN: ", playToken)
         $.ajax({
-          url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
-          // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
-          type: 'GET',
-          headers: {
-            'Authorization': 'Bearer ' + playToken,
-          },
-          ContentType: 'application/json',
-          Accept: 'application/json',
-          success: function (data) {
-            console.log("DATA: ", data)
-          }
-        })
-          .done(function (data) {
-            console.log("NUMBER 2 FIRED!")
-            console.log(data);
-            $.ajax({
+        //   url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
+        //   // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
+        //   type: 'GET',
+        //   headers: {
+        //     'Authorization': 'Bearer ' + playToken,
+        //   },
+        //   ContentType: 'application/json',
+        //   Accept: 'application/json',
+        //   success: function (data) {
+        //     console.log("DATA: ", data)
+        //   }
+        // })
+        //   .done(function (data) {
               url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
               type: 'PUT',
               data: {
@@ -152,7 +149,7 @@
               .done(function (data) {
                 console.log("number 2 worked!!")
               })
-          })
+          
       });
       player.connect().then(success => {
         if (success) {
