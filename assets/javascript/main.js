@@ -157,10 +157,10 @@
                 console.log(object);
                 console.log("number 2 worked!!")
                 console.log("image link: " + object.item.album.images["1"].url)
-                console.log("artist name: " + object.artists["0"].name)
+                console.log("artist name: " + object.item.artists["0"].name)
                 console.log("song name: " + object.item.name)
                 var imgSRC = object.item.album.images["1"].url;
-                var artistName = object.artists["0"].name;
+                var artistName = object.item.artists["0"].name;
                 var songName = object.item.name;
                 $('.now-playing').html(
                   '<div class="card mx-auto p-3" style="width: 18rem;">' +
