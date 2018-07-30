@@ -138,13 +138,14 @@
           Accept: 'application/json',
         })
           .done(function (data) {
+            var object = data;
             console.log("number 2 worked!!")
-            console.log("image link: " + data.track_window.current_track.album.images["0"].url)
-            console.log("artist name: " + data.track_window.current_track.artists["0"].name)
-            console.log("song name: " + data.track_window.current_track.name)
-            var imgSRC = data.track_window.current_track.album.images["0"].url;
-            var artistName = data.track_window.current_track.artists["0"].name;
-            var songName = data.track_window.current_track.name;
+            console.log("image link: " + object.track_window.current_track.album.images["0"].url)
+            console.log("artist name: " + object.track_window.current_track.artists["0"].name)
+            console.log("song name: " + object.track_window.current_track.name)
+            var imgSRC = object.track_window.current_track.album.images["0"].url;
+            var artistName = object.track_window.current_track.artists["0"].name;
+            var songName = object.track_window.current_track.name;
               $('.now-playing').html(
             '<div class="card mx-auto p-3" style="width: 18rem;">' +
                 '<img class="card-img-top" src="' + imgSRC + '" alt="Song image cap">' +
