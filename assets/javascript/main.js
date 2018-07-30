@@ -134,7 +134,7 @@
           type: 'PUT',
           processData: false,
           // data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
-          data: angryPlaylist,
+          data: scaryPlaylist,
           headers: {
             'Authorization': 'Bearer ' + playToken,
           },
@@ -156,10 +156,10 @@
                 var object = data;
                 console.log(object);
                 console.log("number 2 worked!!")
-                console.log("image link: " + object.item.album.images[1].url)
+                console.log("image link: " + object.item.album.images["1"].url)
                 console.log("artist name: " + object.artists["0"].name)
                 console.log("song name: " + object.item.name)
-                var imgSRC = object.item.album.images[1].url;
+                var imgSRC = object.item.album.images["1"].url;
                 var artistName = object.artists["0"].name;
                 var songName = object.item.name;
                 $('.now-playing').html(
