@@ -83,7 +83,7 @@
       var userID = 124239502;
       var happyPlaylist = '70Vhwte8On581mDvi2F98F'
       var spotifyApi = new SpotifyWebApi();
-
+      var deviceId;
       var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
@@ -108,6 +108,7 @@
       // Not Ready
       player.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID has gone offline', device_id);
+        deviceId = device_id; 
       });
       // Connect to the player!
       player.connect().then(success => {
