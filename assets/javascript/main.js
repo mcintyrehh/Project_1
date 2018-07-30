@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-
+  'robustness';
   var ViewModel = function () {
     this.isLoggedIn = ko.observable(false);
     this.login = function () {
@@ -94,10 +94,6 @@
         },
         volume: 0.5
       });
-      player.addListener('ready', ({ device_id }) => {
-        console.log('The Web Playback SDK is ready to play music!');
-        console.log('Device ID', device_id);
-      })
       // Error handling
       player.addListener('initialization_error', ({ message }) => { console.error(message); });
       player.addListener('authentication_error', ({ message }) => { console.error(message); });
@@ -148,18 +144,11 @@
             })
               .done(function (data) {
                 console.log("number 2 worked!!")
+                data.track_window
+                
               })
           
       });
-      player.connect().then(success => {
-        if (success) {
-          console.log('The Web Playback SDK successfully connected to Spotify!');
-        }
-      })
-      player.addListener('ready', ({ device_id }) => {
-        console.log('The Web Playback SDK is ready to play music!');
-        console.log('Device ID', device_id);
-      })
     }
   }
   /**
