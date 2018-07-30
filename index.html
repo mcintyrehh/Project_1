@@ -39,7 +39,7 @@
 
 
                 <div class="col-md-8 instructions">
-                    
+
                 </div>
             </div>
         </div>
@@ -53,11 +53,11 @@
             <!-- <div class="btn btn-success playbtn">Play</div> -->
         </div>
     </div>
-    <div class="container main-box">
+    <div class="container pb-3 main-box">
 
         <div class="starter-template">
-            <h1>Spotify Web API + OAuth2 + Sp-bootstrap template</h1>
-            <p class="lead">Use this project as a way to quickly start a new project.</p>
+            <h1>Log into Spotify and we'll play some tunes to Pic-u-Up</h1>
+
         </div>
 
         <!-- ko ifnot: isLoggedIn -->
@@ -67,32 +67,30 @@
             </div>
             <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
         </div>
+        <div class="now-playing mx-auto mb-3"> 
+
+        </div>  
         <!-- /ko -->
 
         <!-- ko if: isLoggedIn -->
         <div id="loggedin">
-            <div data-bind="with: user">
+            <div class="now-playing"> 
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="assets/images/happy.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    </div>
+                </div>
+            </div>   
+            <!-- <div data-bind="with: user">
                 <h1>Logged in as
                     <span data-bind="text: display_name"></span>
                 </h1>
                 <img data-bind="attr: {src: images[0].url}">
                 <div class="btn btn-success playbtn">Play</div>
-            </div>
-
+            </div> -->
             <hr />
-
-            <h2>Some of my public playlists</h2>
-            <ul data-bind="foreach: playlists">
-                <li class="media playlist">
-                    <div class="media-left">
-                        <img data-bind="attr: {src: images.length ? images[0].url : ''}" width="200" height="200" />
-                    </div>
-                    <div class="media-body">
-                        <div class="media-heading" data-bind="text:name"></div>
-                    </div>
-                </li>
-            </ul>
-
             <button id="login-button" class="btn btn-primary" data-bind="click: logout">Log out from Spotify</button>
         </div>
         <!-- /ko -->

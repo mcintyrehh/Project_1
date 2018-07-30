@@ -117,37 +117,44 @@
       });
       //is this node.js????? how can i get it to work w/o haha
       $('div').on("click", ".playbtn", function () {
+        var happyPlaylist = '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}';
+        var angryPlaylist = '{"context_uri":"spotify:user:124239502:playlist:2tZ2YeQt0GqmmkzzOft3qf"}';
+        var neutralPlaylist = '{"context_uri":"spotify:user:124239502:playlist:2W3ETN59x9kSWizCUilvyR"}';
+        var scaryPlaylist = '{"context_uri":"spotify:user:124239502:playlist:36lRfT88Pf3irhXTEcBcJQ"}';
+        var disgustPlaylist = '{"context_uri":"spotify:user:124239502:playlist:1VNKdTLTa3h1pWSwRUP3Tm"}';
+        var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
+        var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
         console.log("PLAY TOKEN: ", playToken)
         $.ajax({
-        //   url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
-        //   // https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
-        //   type: 'GET',
-        //   headers: {
-        //     'Authorization': 'Bearer ' + playToken,
-        //   },
-        //   ContentType: 'application/json',
-        //   Accept: 'application/json',
-        //   success: function (data) {
-        //     console.log("DATA: ", data)
-        //   }
-        // })
-        //   .done(function (data) {
-              url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
-              type: 'PUT',
-              processData: false,
-              data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
-              headers: {
-                'Authorization': 'Bearer ' + playToken,
-              },
-              ContentType: 'application/json',
-              Accept: 'application/json',
-            })
-              .done(function (data) {
-                console.log("number 2 worked!!")
-                data.track_window
-                
-              })
-          
+          url: 'https://api.spotify.com/v1/me/player/play?device_id=22dc7f75b1abd6b1252720ef5c76bddbb9165ccc',
+          type: 'PUT',
+          processData: false,
+          // data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
+          data: angryPlaylist,
+          headers: {
+            'Authorization': 'Bearer ' + playToken,
+          },
+          ContentType: 'application/json',
+          Accept: 'application/json',
+        })
+          .done(function (data) {
+            console.log("number 2 worked!!")
+            console.log("image link: " + data.track_window.current_track.album.images["0"].url)
+            console.log("artist name: " + data.track_window.current_track.artists["0"].name)
+            console.log("song name: " + data.track_window.current_track.name)
+            var imgSRC = data.track_window.current_track.album.images["0"].url;
+            var artistName = data.track_window.current_track.artists["0"].name;
+            var songName = data.track_window.current_track.name;
+              $('.now-playing').html(
+            '<div class="card mx-auto p-3" style="width: 18rem;">' +
+                '<img class="card-img-top" src="' + imgSRC + '" alt="Song image cap">' +
+                '<div class="card-body text-center">' +
+                    '<h5 class="card-title">' + artistName + '</h5>' +
+                    '<h6 class="card-subtitle text-muted">' + songName + '</h6>' +
+                '</div>' +
+            '</div>')
+          })
+
       });
     }
   }
