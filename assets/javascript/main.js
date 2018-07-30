@@ -84,6 +84,7 @@
       var happyPlaylist = '70Vhwte8On581mDvi2F98F'
       var spotifyApi = new SpotifyWebApi();
       var deviceId;
+      var nowPlayingJSON;
       var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
@@ -100,7 +101,7 @@
       player.addListener('account_error', ({ message }) => { console.error(message); });
       player.addListener('playback_error', ({ message }) => { console.error(message); });
       // Playback status updates
-      player.addListener('player_state_changed', state => { console.log(state); });
+      player.addListener('player_state_changed', state => { console.log(state); nowPlayingJSON = state; });
       // Ready
       player.addListener('ready', ({ device_id }) => {
         console.log('Ready with Device ID', device_id);
@@ -140,7 +141,8 @@
           Accept: 'application/json',
         })
           .done(function (data) {
-            var object = data;
+            console.log(nowPlayingJSON);
+            var object = nowPlayingJSON;
             console.log("number 2 worked!!")
             console.log("image link: " + object.track_window.current_track.album.images["0"].url)
             console.log("artist name: " + object.track_window.current_track.artists["0"].name)
