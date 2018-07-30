@@ -127,7 +127,7 @@
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
         console.log("PLAY TOKEN: ", playToken)
         $.ajax({
-          url: 'https://api.spotify.com/v1/me/player/play?device_id=' + device_id,
+          url: 'https://api.spotify.com/v1/me/player/play?device_id=' + deviceId,
           type: 'PUT',
           processData: false,
           // data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
