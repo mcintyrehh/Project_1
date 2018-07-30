@@ -14,6 +14,7 @@
           "user-read-private",
           "user-modify-playback-state",
           "user-read-playback-state",
+          "user-read-currently-playing"
         ]
         /*
           the permission for reading public playlists is granted
@@ -110,7 +111,7 @@
       // Not Ready
       player.addListener('not_ready', ({ device_id }) => {
         console.log('Device ID has gone offline', device_id);
-         
+
       });
       // Connect to the player!
       player.connect().then(success => {
@@ -141,23 +142,36 @@
           Accept: 'application/json',
         })
           .done(function (data) {
-            console.log(nowPlayingJSON);
-            var object = nowPlayingJSON;
-            console.log("number 2 worked!!")
-            console.log("image link: " + object.track_window.current_track.album.images["0"].url)
-            console.log("artist name: " + object.track_window.current_track.artists["0"].name)
-            console.log("song name: " + object.track_window.current_track.name)
-            var imgSRC = object.track_window.current_track.album.images["0"].url;
-            var artistName = object.track_window.current_track.artists["0"].name;
-            var songName = object.track_window.current_track.name;
-              $('.now-playing').html(
-            '<div class="card mx-auto p-3" style="width: 18rem;">' +
-                '<img class="card-img-top" src="' + imgSRC + '" alt="Song image cap">' +
-                '<div class="card-body text-center">' +
-                    '<h5 class="card-title">' + artistName + '</h5>' +
-                    '<h6 class="card-subtitle text-muted">' + songName + '</h6>' +
-                '</div>' +
-            '</div>')
+            console.log('number 1 worked!!');
+            $.ajax({
+              url: 'https://api.spotify.com/v1/me/player/currently-playing',
+              type: 'GET',
+              headers: {
+                'Authorization': 'Bearer ' + playToken,
+              },
+              ContentType: 'application/json',
+              Accept: 'application/json',
+            })
+              .done(function (data) {
+                var object = data;
+                console.log("number 2 worked!!")
+                console.log("image link: " + object.track_window.current_track.album.images["0"].url)
+                console.log("artist name: " + object.track_window.current_track.artists["0"].name)
+                console.log("song name: " + object.track_window.current_track.name)
+                var imgSRC = object.track_window.current_track.album.images["0"].url;
+                var artistName = object.track_window.current_track.artists["0"].name;
+                var songName = object.track_window.current_track.name;
+                $('.now-playing').html(
+                  '<div class="card mx-auto p-3" style="width: 18rem;">' +
+                  '<img class="card-img-top" src="' + imgSRC + '" alt="Song image cap">' +
+                  '<div class="card-body text-center">' +
+                  '<h5 class="card-title">' + artistName + '</h5>' +
+                  '<h6 class="card-subtitle text-muted">' + songName + '</h6>' +
+                  '</div>' +
+                  '</div>')
+              })
+
+
           })
 
       });
