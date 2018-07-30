@@ -37,19 +37,19 @@
                     <img class="test" src="assets/images/happy.jpg">
                 </div>
                 <br>
-                <h3>Enter the URL to an image that includes a face or faces, or upload a local image, then click the
-                    <strong>Analyze face</strong> button.</h3>
+                <h4>Enter the URL to an image that includes a face or faces, or upload a local image, then click the
+                    <strong>Analyze face</strong> button.</h4>
                 <br>
-                <br> Image to analyze:
+                <br> <h6>Image to analyze:</h6>
                 <input size="100" type="text" name="inputImage" id="image-url-field" value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg">
                 <button id="process-image-url-button">Process Image URL</button>
                 <br>
-                <br> Upload image:
+                <br> <h6>Upload image:</h6>
                 <input size="100" type="file" id="local-image-file-field">
                 <br>
                 <br>
                 <div id="imageDiv" style="width:420px; display:table-cell;">
-                    Source image:
+                   <h6>Source image:</h6>
                     <br>
                     <br>
 
@@ -88,7 +88,7 @@
                         <div class="btn btn-success playbtn">Play</div>
                     </div>
 
-                    <hr />
+                   
 
                     <h2>Some of my public playlists</h2>
                     <ul data-bind="foreach: playlists">
@@ -143,6 +143,7 @@
     <script src="https://sdk.scdn.co/spotify-player.js"></script>
     <script>window.onSpotifyWebPlaybackSDKReady = () => { };</script>
     <!-- linking all the js files-->
+
     <!--<script src="assets/javascript/spotify-web-api.js"></script>-->
     <script src="assets/javascript/oauth-config.js"></script>
     <script src="assets/javascript/oauth-manager.js"></script>
