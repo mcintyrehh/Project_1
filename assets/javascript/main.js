@@ -128,28 +128,34 @@
         var disgustPlaylist = '{"context_uri":"spotify:user:124239502:playlist:1VNKdTLTa3h1pWSwRUP3Tm"}';
         var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
-        
+        var sadPlaylist = '{"context_uri":"spotify:user:124239502:playlist:7bUCG4iD4XAUakBxIgMhBT"}';
         console.log(moodMusic);
         if (moodMusic === "happiness") {
           playlist = happyPlaylist;
         }
-        if (moodMusic === "anger") {
+        else if (moodMusic === "anger") {
           playlist = angryPlaylist;
         }
-        if (moodMusic === "neutral") {
+        else if (moodMusic === "neutral") {
           playlist = neutralPlaylist;
         }
-        if (moodMusic === "fear") {
+        else if (moodMusic === "fear") {
           playlist = scaryPlaylist;
         }
-        if (moodMusic === "disgust") {
+        else if (moodMusic === "disgust") {
           playlist = disgustPlaylist;
         }
-        if (moodMusic === "contempt") {
+        else if (moodMusic === "contempt") {
           playlist = contemptPlaylist;
         }
-        if (moodMusic === "surprise") {
+        else if (moodMusic === "surprise") {
           playlist = surprisePlaylist;
+        }
+        else if (moodMusic === "sadness") {
+          playlist = sadPlaylist;
+        }
+        else {
+          console.log(playlist);
         }
         console.log(playlist);
 
@@ -186,6 +192,8 @@
                 var imgSRC = object.item.album.images["1"].url;
                 var artistName = object.item.artists["0"].name;
                 var songName = object.item.name;
+                
+                new function nowPlaying() {
                 $('.now-playing').html(
                   '<div class="card mx-auto p-3" style="width: 18rem;">' +
                   '<img class="card-img-top" src="' + imgSRC + '" alt="Song image cap">' +
@@ -194,6 +202,8 @@
                   '<h6 class="card-subtitle text-muted">' + songName + '</h6>' +
                   '</div>' +
                   '</div>')
+                }
+                setTimeout(nowPlaying, 1000);
               })
           })
       });
