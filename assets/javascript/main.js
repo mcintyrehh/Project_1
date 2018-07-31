@@ -127,26 +127,26 @@
         var disgustPlaylist = '{"context_uri":"spotify:user:124239502:playlist:1VNKdTLTa3h1pWSwRUP3Tm"}';
         var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
-        console.log(mood)
-        if (mood === "happy") {
+        console.log(moodMusic)
+        if (moodMusic === "happiness") {
           playlist = happyPlaylist;
         }
-        if (mood === "angry") {
+        if (moodMusic === "anger") {
           playlist = angryPlaylist;
         }
-        if (mood === "neutral") {
+        if (moodMusic === "neutral") {
           playlist = neutralPlaylist;
         }
-        if (mood === "scary") {
+        if (moodMusic === "fear") {
           playlist = scaryPlaylist;
         }
-        if (mood === "disgust") {
+        if (moodMusic === "disgust") {
           playlist = disgustPlaylist;
         }
-        if (mood === "contempt") {
+        if (moodMusic === "contempt") {
           playlist = contemptPlaylist;
         }
-        if (mood === "surprise") {
+        if (moodMusic === "surprise") {
           playlist = surprisePlaylist;
         }
         else {
