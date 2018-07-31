@@ -237,6 +237,7 @@ $(document).ready(function () {
          "fear": ["Crime", "Drama", "Horror", "Thriller", "War"],
          "happiness": ["Adventure", "Comedy", "Drama", "Family", "Romance"],
          "neutral": ["Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Romance", "Science Fiction", "Thriller"],
+         "sadness": ["Comedy", "Documentary", "Drama","Family", "War"],
          "surprise": ["Adventure", "Fantasy", "Mystery", "Science Fiction", "Thriller"]
       }
 
@@ -298,6 +299,7 @@ $(document).ready(function () {
          dataType: 'jsonp',
          success: function (data) {
             var films = data.results;
+            // console.log("before filtering films: ", films)
 
             function isGoodChoice(film) {
                var myPat = /[-a-zA-Z0-9,:\w\']+/g;
@@ -310,16 +312,15 @@ $(document).ready(function () {
             }
             // console.log("all film data is: ", data);
             films = films.filter(isGoodChoice);
+            // console.log("filtered films: ", films);
 
             if (films.length > 6) {
                var nFilms = films.length;
                // e.g.: 8 films, spliceStart will be 0, 1, or 2
-               var spliceStart = Math.floor(Math.random() * nFilms - 5)
-               films = films.splice(spliceStart, 6);
-            }
-
-            // console.log("page, film list: ");
-            // console.log(page, films);
+               var sliceStart = Math.floor(Math.random() * (nFilms - 5));
+               var films = films.slice(sliceStart, sliceStart + 6);
+            } 
+               
             displayFilmInfo(films);
          }
       });
