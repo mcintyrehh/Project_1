@@ -82,7 +82,7 @@
       });
       //initializing the spotify web api wrapper
       var userID = 124239502;
-      var Playlist;
+      var playlist;
       var spotifyApi = new SpotifyWebApi();
       var deviceId;
       var nowPlayingJSON;
@@ -127,6 +127,7 @@
         var disgustPlaylist = '{"context_uri":"spotify:user:124239502:playlist:1VNKdTLTa3h1pWSwRUP3Tm"}';
         var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
+        
         console.log(moodMusic)
         if (moodMusic === "happiness") {
           playlist = happyPlaylist;
