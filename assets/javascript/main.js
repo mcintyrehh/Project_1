@@ -1,6 +1,7 @@
 (function () {
   'use strict';
   'robustness';
+  var playlist;
   var ViewModel = function () {
     this.isLoggedIn = ko.observable(false);
     this.login = function () {
@@ -82,7 +83,7 @@
       });
       //initializing the spotify web api wrapper
       var userID = 124239502;
-      var playlist;
+      
       var spotifyApi = new SpotifyWebApi();
       var deviceId;
       var nowPlayingJSON;
