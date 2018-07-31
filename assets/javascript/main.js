@@ -82,11 +82,10 @@
       });
       //initializing the spotify web api wrapper
       var userID = 124239502;
-      var happyPlaylist = '70Vhwte8On581mDvi2F98F'
+      var Playlist;
       var spotifyApi = new SpotifyWebApi();
       var deviceId;
       var nowPlayingJSON;
-      var my_client_id = '2e12ca59d482427694678b6f76ce6cac'
       var redirect_uri = 'https://mcintyrehh.github.io/Project_1/'
       var player = new Spotify.Player({
         name: 'Carly Rae Jepsen Player',
@@ -128,13 +127,39 @@
         var disgustPlaylist = '{"context_uri":"spotify:user:124239502:playlist:1VNKdTLTa3h1pWSwRUP3Tm"}';
         var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
-        console.log("PLAY TOKEN: ", playToken)
+        console.log(mood)
+        if (mood === "happy") {
+          playlist = happyPlaylist;
+        }
+        if (mood === "angry") {
+          playlist = angryPlaylist;
+        }
+        if (mood === "neutral") {
+          playlist = neutralPlaylist;
+        }
+        if (mood === "scary") {
+          playlist = scaryPlaylist;
+        }
+        if (mood === "disgust") {
+          playlist = disgustPlaylist;
+        }
+        if (mood === "contempt") {
+          playlist = contemptPlaylist;
+        }
+        if (mood === "surprise") {
+          playlist = surprisePlaylist;
+        }
+        else {
+          playlist = scaryPlaylist;
+        }
+        console.log(playlist);
+
         $.ajax({
           url: 'https://api.spotify.com/v1/me/player/play?device_id=' + deviceId,
           type: 'PUT',
           processData: false,
           // data: '{"context_uri":"spotify:user:124239502:playlist:70Vhwte8On581mDvi2F98F"}',
-          data: scaryPlaylist,
+          data: playlist,
           headers: {
             'Authorization': 'Bearer ' + playToken,
           },
@@ -171,10 +196,7 @@
                   '</div>' +
                   '</div>')
               })
-
-
           })
-
       });
     }
   }
