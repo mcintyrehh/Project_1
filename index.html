@@ -20,90 +20,96 @@
 
 <body>
     <div class="row">
+        <div class="col-sm-10 mx-auto justify-content-center d-flex title">
+            <h1 class="head">PicMeUp</h1>
+        </div>
         <div class="col-sm-10 mx-auto justify-content-center d-flex top" id="for-media">
             <div class="my-auto mx-3 titletop">😄😒😖😡😱</div>
         </div>
-        <div class="col-sm-10 mx-auto justify-content-center d-flex title">
-            <h1>PicMeUp</h1>
-        </div>
-
     </div>
 
     <!--Image and instructions div-->
+
     <div class="row">
+
         <div class="col-md-10 mx-auto main-box">
-            <div class="row">
-                <div class="col-md-12 example-pic">
-                    <img class="test" height="180" src="assets/images/happy.jpg">
-                    <p> To get custom film and spotify recommendations based on your current mood,
-                        you can point to a web selfie:
-                  </p>
-                  <input size="120" type="text" name="inputImage" id="image-url-field" value="https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg">
-                <button id="process-image-url-button">Process Web Image</button>
-                <p>or upload a local image: <br><input size="100" type="file" id="local-image-file-field"></p>
-                <span id="errMsgNode"></span>
-                </div>
-               
-                <br>
-                <div id="imageDiv">
-                   <p>Source image:</p>
+            <h3 class="text-center pt-3">You might not know how you feel...but your selfie does...</h3>
+            <div class="d-flex justify-content-center">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-4 example-pic" id="imageDiv">
+                        <div class="img-holder">
+                            <img class="test mx-auto" type="file" id="source-image" src="assets/images/happy.jpg">
+                        </div>
+                    </div>
+                    <div class="col-md-6 test">
+                        <p> To get custom film and spotify recommendations based on your current mood...</p>
+                        <div> You can point to a web selfie:</div>
+
+                        <input class="mb-1" size="80%" type="text" name="inputImage" id="image-url-field" value="https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg">
+                        <button class="mb-4" id="process-image-url-button">Process Web Image</button>
+                        <br>
+                        <p class="mt-4">Or upload a local image:
+                            <br>
+                            <input size="100" type="file" id="local-image-file-field">
+                        </p>
+                        <span id="errMsgNode"></span>
+                    </div>
+
+                    <br>
+                    <!-- <div id="imageDiv">
+                    <p>Source image:</p>
                     <br>
                     <img id="source-image" class="mx-auto" width="500" />
+                </div> -->
                 </div>
             </div>
-       
-
         </div>
     </div>
     </div>
 
     <!--Music selection and recommendations-->
-    <div class="row">
-        <div class="col-md-10 mx-auto main-box">
-            <div class="col-md-8 music-selections"></div>
-            <h1>Spotify Music List</h1>
-            <!--Music selection and recommendations-->
-            <div class="container main-box">
-                <!-- ko ifnot: isLoggedIn -->
-                <div id="login">
-                    <div data-bind="if: loginErrorMessage">
-                        <div class="alert alert-danger" data-bind="text: loginErrorMessage"></div>
-                    </div>
-                    <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
-                </div>
-                <!-- /ko -->
 
-                <!-- ko if: isLoggedIn -->
-                <div id="loggedin">
-                    <div data-bind="with: user">
-                        <h1>Logged in as
-                            <span data-bind="text: display_name"></span>
-                        </h1>
-                        <img data-bind="attr: {src: images[0].url}">
-                        <div class="btn btn-success playbtn">Play</div>
-                    </div>
+    <div class="container pb-3 main-box">
 
-                   
+        <div class="starter-template">
+            <h1>Log into Spotify and we'll play some tunes to Pic-U-Up</h1>
+        </div>
 
-                    <h2>Some of my public playlists</h2>
-                    <ul data-bind="foreach: playlists">
-                        <li class="media playlist">
-                            <div class="media-left">
-                                <img data-bind="attr: {src: images.length ? images[0].url : ''}" width="200" height="200" />
-                            </div>
-                            <div class="media-body">
-                                <div class="media-heading" data-bind="text:name"></div>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <button id="login-button" class="btn btn-primary" data-bind="click: logout">Log out from Spotify</button>
-                </div>
-                <!-- /ko -->
+        <!-- ko ifnot: isLoggedIn -->
+        <div id="login" class="d-flex justify-content-center">
+            <div data-bind="if: loginErrorMessage">
+                <div class="alert alert-danger" width:"100%" data-bind="text: loginErrorMessage"></div>
             </div>
-
+            <br>
+            <div class="justify-self-center">    
+                <button id="login-button" class="btn btn-primary" data-bind="click: login">Log in with Spotify</button>
+            </div>
+        </div>
+        <div class="now-playing mx-auto mb-3">
 
         </div>
+        <!-- /ko -->
+
+        <!-- ko if: isLoggedIn -->
+        <div id="loggedin">
+            <div class="now-playing">
+
+            </div>
+            <div data-bind="with: user">
+                <h1>Logged in as
+                    <span data-bind="text: display_name"></span>
+                </h1>
+                <img data-bind="attr: {src: images[0].url}">
+                <div class="btn btn-success playbtn">Play</div>
+            </div>
+            <hr />
+            <button id="login-button" class="btn btn-primary" data-bind="click: logout">Log out from Spotify</button>
+        </div>
+        <!-- /ko -->
+    </div>
+
+
+    </div>
 
     </div>
 
@@ -113,7 +119,7 @@
             <div class="col-md-8 music-selections"></div>
             <h1>Movie List </h1>
 
-            <p id="displayButtonNode">&nbsp;</p>
+            <p id="displayButtonNode" class="text-center">&nbsp;</p>
             <div class="container">
                 <div class="row" id="filmContent">
 
@@ -130,8 +136,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
     <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script> -->
-    
-    
+
+
     <!--knockout is the 'binding library' used in a lot of spotify applications -->
     <script src="bower_components/knockout/dist/knockout.js"></script>
     <script src="bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>

@@ -1,9 +1,12 @@
+//global var to pass to main.js
+var moodMusic;
 $(document).ready(function () {
 
 
    // uncomment out this line to test the functions on this page
    // displayFilmButtons("anger");
-
+   
+   
 
    $("#process-image-url-button").on("click", function () {
       var imageURL = $("#image-url-field").val();
@@ -174,8 +177,9 @@ $(document).ready(function () {
                resultObj.emotionAmount = emotions[emotion];
             }
          }
+    
       }
-
+      
       // myOutputField.val(JSON.stringify(resultObj, null, 2));
       processResultObj(resultObj);
    }
@@ -188,12 +192,11 @@ $(document).ready(function () {
          $("#errMsgNode").text("Sorry, you must be at least 16 to use this application");
       } else {
          displayFilmButtons(resultObj.emotion);
+         moodMusic = (resultObj.emotion);
       }
 
    }
-
-
-
+ 
    // CREDIT NOTE: this code is mostly not our own
    // This function is modifified only slightly from a stack overflow answer given on this page:
    // https://stackoverflow.com/questions/48201395/how-to-post-image-instead-of-url-in-microsoft-azure-analyze-image-api-using-java
@@ -225,7 +228,7 @@ $(document).ready(function () {
 
 
    function displayFilmButtons(mood) {
-      var textStr = `Based on your current mood of ${mood}, here are some film genres you may enjoy exploring.<br>`;
+      var textStr = `<div>Based on your current mood of ${mood}, here are some film genres you may enjoy exploring.</div><br>`;
       var displayButtonNode = $("#displayButtonNode"); 
       var moodKey = {
          "anger": ["Action", "Adventure", "Documentary", "Thriller", "Western"],
