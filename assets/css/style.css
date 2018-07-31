@@ -5,6 +5,11 @@ body {
 
 }
 
+.head {
+    font-size: 60px;
+    color: black;
+    font-weight: bold;
+}
 
 h1,
 h4,
@@ -42,10 +47,12 @@ ul {
 
 .main-box {
     margin-bottom: 10px;
-    min-height: 200px;
+    min-height: 50px;
     background-color: black;
 }
-
+#source-image {
+    width: 100%;
+}
 .titletop {
     font-size: 24pt;
     font-weight: bold;

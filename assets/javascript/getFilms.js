@@ -21,7 +21,7 @@ $(document).ready(function () {
    });
 
    function clearUI() {
-      $("#source-image").attr("src","");s
+      $("#source-image").attr("src","");
       $("#displayButtonNode").empty();
       $("#filmContent").empty();
       $("#errMsgNode").empty();
@@ -228,7 +228,7 @@ $(document).ready(function () {
 
 
    function displayFilmButtons(mood) {
-      var textStr = `Based on your current mood of ${mood}, here are some film genres you may enjoy exploring.<br>`;
+      var textStr = `<div>Based on your current mood of ${mood}, here are some film genres you may enjoy exploring.</div><br>`;
       var displayButtonNode = $("#displayButtonNode"); 
       var moodKey = {
          "anger": ["Action", "Adventure", "Documentary", "Thriller", "Western"],
