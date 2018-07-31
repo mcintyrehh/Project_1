@@ -5,6 +5,7 @@
       this.isLoggedIn = ko.observable(false);
       this.login = function () {
         var self = this;
+        console.log(moodMusic);
         this.loginErrorMessage(null);
         OAuthManager.obtainToken({
           scopes: [
@@ -120,6 +121,7 @@
         });
         //is this node.js????? how can i get it to work w/o haha
         $('div').on("click", ".playbtn", function () {
+          console.log(moodMusic);
           console.log("PLAY TOKEN: ", playToken)
           $.ajax({
             url: 'https://api.spotify.com/v1/users/124239502/playlists/70Vhwte8On581mDvi2F98F',
