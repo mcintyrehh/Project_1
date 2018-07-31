@@ -237,6 +237,7 @@ $(document).ready(function () {
          "fear": ["Crime", "Drama", "Horror", "Thriller", "War"],
          "happiness": ["Adventure", "Comedy", "Drama", "Family", "Romance"],
          "neutral": ["Action", "Adventure", "Comedy", "Crime", "Drama", "Horror", "Romance", "Science Fiction", "Thriller"],
+         "sadness": ["Comedy", "Documentary", "Drama","Family", "War"],
          "surprise": ["Adventure", "Fantasy", "Mystery", "Science Fiction", "Thriller"]
       }
 
