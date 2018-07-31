@@ -129,7 +129,7 @@
         var contemptPlaylist = '{"context_uri":"spotify:user:124239502:playlist:20kq7mkGlkUavx9TBVJDGZ"}';
         var surprisePlaylist = '{"context_uri":"spotify:user:124239502:playlist:6IeumRfE38bjbtS0q3eIJ3"}';
         
-        console.log(moodMusic)
+        console.log(moodMusic);
         if (moodMusic === "happiness") {
           playlist = happyPlaylist;
         }
@@ -150,9 +150,6 @@
         }
         if (moodMusic === "surprise") {
           playlist = surprisePlaylist;
-        }
-        else {
-          playlist = scaryPlaylist;
         }
         console.log(playlist);
 
