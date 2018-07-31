@@ -1,8 +1,10 @@
 body {
     background-image: url(../images/wild-sea.png);
     max-width: 100vw;
+    color: white;
 
 }
+
 
 h1,
 h4,
@@ -48,4 +50,8 @@ ul {
     font-size: 24pt;
     font-weight: bold;
     color: white;
+}
+
+#errMsgNode {
+   color: #CD5C5C;
 }

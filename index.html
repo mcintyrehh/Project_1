@@ -33,30 +33,25 @@
     <div class="row">
         <div class="col-md-10 mx-auto main-box">
             <div class="row">
-                <div class="col-md-4 example-pic">
-                    <img class="test" src="assets/images/happy.jpg">
+                <div class="col-md-12 example-pic">
+                    <img class="test" height="180" src="assets/images/happy.jpg">
+                    <p> To get custom film and spotify recommendations based on your current mood,
+                        you can point to a web selfie:
+                  </p>
+                  <input size="120" type="text" name="inputImage" id="image-url-field" value="https://upload.wikimedia.org/wikipedia/commons/8/8d/George_Clooney_2016.jpg">
+                <button id="process-image-url-button">Process Web Image</button>
+                <p>or upload a local image: <br><input size="100" type="file" id="local-image-file-field"></p>
+                <span id="errMsgNode"></span>
                 </div>
+               
                 <br>
-                <h4>Enter the URL to an image that includes a face or faces, or upload a local image, then click the
-                    <strong>Analyze face</strong> button.</h4>
-                <br>
-                <br> <h6>Image to analyze:</h6>
-                <input size="100" type="text" name="inputImage" id="image-url-field" value="https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg">
-                <button id="process-image-url-button">Process Image URL</button>
-                <br>
-                <br> <h6>Upload image:</h6>
-                <input size="100" type="file" id="local-image-file-field">
-                <br>
-                <br>
-                <div id="imageDiv" style="width:420px; display:table-cell;">
-                   <h6>Source image:</h6>
+                <div id="imageDiv">
+                   <p>Source image:</p>
                     <br>
-                    <br>
-
-                    <img id="source-image" width="400" />
+                    <img id="source-image" class="mx-auto" width="500" />
                 </div>
             </div>
-            <button>Analyze face</button>
+       
 
         </div>
     </div>
@@ -130,11 +125,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script> -->
     
     
     <!--knockout is the 'binding library' used in a lot of spotify applications -->
@@ -149,9 +144,7 @@
     <script src="assets/javascript/oauth-manager.js"></script>
     <script src="assets/javascript/main.js"></script>
     <script src="assets/javascript/getFilms.js"></script>
-    <!--linking face test  -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/FaceTest.js"></script>
+    <!-- <script src="assets/javascript/FaceTest.js"></script> -->
 
 
 
