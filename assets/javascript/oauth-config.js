@@ -7,7 +7,7 @@ var OAuthConfig = (function() {
     var clientId = '2e12ca59d482427694678b6f76ce6cac';
     var redirectUri = 'https://mcintyrehh.github.io/Project_1/callback.html';
   
-    if (location.href.indexOf('https://mcintyrehh.github.io') === 0) {
+    if (location.href.indexOf('https://mcintyrehh.github.io') === 0 || location.href.indexOf('https://jcontratto') === 0) {
       redirectUri = 'https://mcintyrehh.github.io/Project_1/callback.html';
     }
   
